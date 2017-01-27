@@ -12,9 +12,23 @@
     "128": "icons/icon128.png"
   },
 
+  /*
   "background": {
     "scripts": [
       "background.js"
     ]
-  }
+  },
+  */
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.backlog.jp/*"],
+      "js": [
+        "bower_components/jquery/dist/jquery.min.js",
+        "content-script.js"
+      ]
+    }
+  ],
+
+  "permissions": ["https://*.backlog.jp/*"]
 }

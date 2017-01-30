@@ -1,31 +1,58 @@
-// ステータスのDOM
-var status_elements = $(".comment-editor__radio-item");
-var submit_element  = $('#submitbtn');
+var BacklogTicketGuardian = {
 
-// ticket ページかどうか判定
-console.log(status_elements);
-console.log(submit_element);
+  init: function() {
 
-// 引数のDOMを覆うようなDIV要素を追加する
-// 登録ボタンを覆って無効にする
-(function(element) {
+    var self = BacklogTicketGuardian;
 
-  var cover_dom = $(document.createElement('div'));
-  cover_dom.width(105);
-  cover_dom.height(32);
-  cover_dom.text('Guard!!');
-  cover_dom.css('color', 'whitesmoke');
-  cover_dom.css('font-wieght', 'bold');
-  cover_dom.css('background-color', '#696208');
-  cover_dom.css('border-radius', '4px');
-  cover_dom.css('opacity', '0.8');
-  cover_dom.css('position', 'absolute');
-  cover_dom.css('top', 0);
+    // ステータスと登録ボタンのDOM
+    var status_elements = $(".comment-editor__radio-item");
+    var submit_element  = $('#submitbtn');
 
-  element.parent().append(cover_dom);
+    if (utils.falsy(status_elements[0])) {
+      console.log('Backlog Ticket Guardian: this is not target page.');
+      return;
+    }
+    // ticket ページかどうか判定
+    console.log(status_elements);
+    console.log(submit_element);
 
-})(submit_element);
+    // 引数のDOMを覆うようなDIV要素を追加する
+    // 登録ボタンを覆って無効にする
+    self.cover(submit_element, self.createGuardElement());
+  },
 
+
+  cover: function(target_dom, covering_element) {
+
+    if (utils.existy(target_dom)) {
+      if (utils.existy(target_dom.parent())) {
+        target_dom.parent().append(covering_element);
+      }
+    }
+  },
+
+
+  createGuardElement: function() {
+
+    var gurad_element = $(document.createElement('div'));
+    gurad_element.width(105);
+    gurad_element.height(32);
+    gurad_element.text('Guard!!');
+    gurad_element.css('color', 'whitesmoke');
+    gurad_element.css('font-wieght', 'bold');
+    gurad_element.css('background-color', '#696208');
+    gurad_element.css('border-radius', '4px');
+    gurad_element.css('opacity', '0.8');
+    gurad_element.css('position', 'absolute');
+    gurad_element.css('top', 0);
+
+    return gurad_element;
+  },
+
+
+};
+
+BacklogTicketGuardian.init();
 
 // ステータス毎のDOMにonClickイベントを登録して制御
 

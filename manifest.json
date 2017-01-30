@@ -25,6 +25,7 @@
       "matches": ["https://*.backlog.jp/*"],
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
+        "utils.js",
         "content-script.js"
       ]
     }

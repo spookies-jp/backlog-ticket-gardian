@@ -1,9 +1,31 @@
 // ステータスのDOM
 var status_elements = $(".comment-editor__radio-item");
-
-window.console.log(status_elements);
+var submit_element  = $('#submitbtn');
 
 // ticket ページかどうか判定
+console.log(status_elements);
+console.log(submit_element);
+
+// 引数のDOMを覆うようなDIV要素を追加する
+// 登録ボタンを覆って無効にする
+(function(element) {
+
+  var cover_dom = $(document.createElement('div'));
+  cover_dom.width(105);
+  cover_dom.height(32);
+  cover_dom.text('Guard!!');
+  cover_dom.css('color', 'whitesmoke');
+  cover_dom.css('font-wieght', 'bold');
+  cover_dom.css('background-color', '#696208');
+  cover_dom.css('border-radius', '4px');
+  cover_dom.css('opacity', '0.8');
+  cover_dom.css('position', 'absolute');
+  cover_dom.css('top', 0);
+
+  element.parent().append(cover_dom);
+
+})(submit_element);
+
 
 // ステータス毎のDOMにonClickイベントを登録して制御
 
@@ -46,4 +68,3 @@ window.console.log(status_elements);
 //
 //        `登録` enable
 //
-

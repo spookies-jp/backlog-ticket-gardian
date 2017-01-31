@@ -1,5 +1,5 @@
 const expect = require('expect.js');
-const $ = require('../utils.js');
+const $ = require('../scripts/utils.js');
 
 // for existy
 expect($.existy(null)).to.be(false);

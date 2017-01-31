@@ -28,7 +28,11 @@ $ git clone https://github.com/spookies-jp/backlog-ticket-gardian.git
 
 2. Chromeで**拡張機能**の設定ページを開きます。
 
+<img width="500px" src="https://raw.githubusercontent.com/spookies-jp/backlog-ticket-gardian/images/how_to_02.png">
+
 3. **デベロッパーモード**にチェックを入れます。
+
+<img width="750px" src="https://raw.githubusercontent.com/spookies-jp/backlog-ticket-gardian/images/how_to_03.png">
 
 4. **パッケージ化されていない拡張機能を読み込む** ボタンから先程ダウンロードしたディレクトリを指定します。
 

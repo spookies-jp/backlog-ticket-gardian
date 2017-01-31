@@ -18,7 +18,11 @@ var BacklogTicketGuardian = {
 
     // 引数のDOMを覆うようなDIV要素を追加する
     // 登録ボタンを覆って無効にする
-    self.cover(submit_element, self.createGuardElement());
+    guard_element = self.createGuardElement();
+    self.cover(submit_element, guard_element);
+
+    // 各ステータスボタンにイベント登録
+    $(status_elements[0]).click(self.onChangeOpen(guard_element));
   },
 
 
@@ -50,15 +54,21 @@ var BacklogTicketGuardian = {
   },
 
 
+  //  on 未対応に変える
+  //
+  //    `登録` enable
+  onChangeOpen: function(guard_element) {
+    return function (e) {
+      guard_element.hide();
+    };
+  },
+
 };
 
 BacklogTicketGuardian.init();
 
 // ステータス毎のDOMにonClickイベントを登録して制御
 
-//  on 未対応に変える
-//
-//    `登録` enable
 
 //  on 処理中に変える
 //

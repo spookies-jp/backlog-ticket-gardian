@@ -26,7 +26,11 @@ var utils = {
       }
     }
     return true;
-  }
+  },
+
+  empty: function(v) {
+    return this.falsy(v);
+  },
 }
 
 if (typeof module !== 'undefined' && module && module.exports) {

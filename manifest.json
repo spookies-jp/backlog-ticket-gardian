@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Backlog Ticket Guardian",
-  "short_name": "Spoo Guards",
+  "short_name": "Backlog Guards",
   "version": "0.1",
   "description": "Backlogチケットのステータス変更をチェックし、予定/実績が未入力の場合には登録を阻止します。",
 

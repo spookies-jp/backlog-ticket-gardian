@@ -30,6 +30,10 @@ var BacklogTicketGuardian = {
     $(status_elements[2]).click(self.onChangeResolved(guard_element));
     $(status_elements[3]).click(self.onChangeClosed(guard_element));
 
+    // すでに完了になってる時のボタン
+    $(status_elements[4]).click(self.onChangeInProgress(guard_element)); // [処理中に変更する]
+    $(status_elements[5]).click(self.onChangeClosed(guard_element));
+
     // 予定/実績 の入力によるイベント
     var div = $('div.change-statuses-properties-item.-estimated-hours')
     var est = div.children('input[name="switchStatusIssue.estimatedHours"]');

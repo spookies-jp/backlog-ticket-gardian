@@ -14,7 +14,7 @@
 
   "content_scripts": [
     {
-      "matches": ["https://*.backlog.jp/*"],
+      "matches": ["https://*.backlog.jp/view/*"],
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
         "utils.js",
@@ -23,5 +23,5 @@
     }
   ],
 
-  "permissions": ["https://*.backlog.jp/*"]
+  "permissions": ["https://*.backlog.jp/view/*"]
 }

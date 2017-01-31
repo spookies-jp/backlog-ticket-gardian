@@ -21,6 +21,9 @@ var utils = {
       if (v === 'false') {
         return true;
       }
+      if (v === '0') {
+        return true;
+      }
       if (v) {
         return false;
       }

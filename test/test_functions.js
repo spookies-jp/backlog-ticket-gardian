@@ -16,6 +16,7 @@ expect($.falsy(null)).to.be(true);
 expect($.falsy(undefined)).to.be(true);
 expect($.falsy(false)).to.be(true);
 expect($.falsy(0)).to.be(true);
+expect($.falsy('0')).to.be(true);
 expect($.falsy(0.0)).to.be(true);
 expect($.falsy('false')).to.be(true);
 expect($.falsy('')).to.be(true);

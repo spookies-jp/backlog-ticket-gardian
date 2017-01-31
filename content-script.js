@@ -23,7 +23,7 @@ var BacklogTicketGuardian = {
 
     // この時点ではステータスを取れない
     window.setTimeout(function() {
-      self.onBlurHours(guard_element)();
+      self.judgeByStatus(guard_element)();
     }, 1000);
 
     // 各ステータスボタンにイベント登録
@@ -36,8 +36,8 @@ var BacklogTicketGuardian = {
     var div = $('div.change-statuses-properties-item.-estimated-hours')
     var est = div.children('input[name="switchStatusIssue.estimatedHours"]');
     var act = div.children('input[name="switchStatusIssue.actualHours"]');
-    est.blur(self.onBlurHours(guard_element));
-    act.blur(self.onBlurHours(guard_element));
+    est.blur(self.judgeByStatus(guard_element));
+    act.blur(self.judgeByStatus(guard_element));
   },
 
 
@@ -148,7 +148,7 @@ var BacklogTicketGuardian = {
   //
   //        `登録` enable
   //
-  onBlurHours: function(guard_element) {
+  judgeByStatus: function(guard_element) {
 
     return function(e) {
 

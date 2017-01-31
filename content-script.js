@@ -8,13 +8,11 @@ var BacklogTicketGuardian = {
     var status_elements = $(".comment-editor__radio-item");
     var submit_element  = $('#submitbtn');
 
+    // ticket ページかどうか判定
     if (utils.falsy(status_elements[0])) {
       console.log('Backlog Ticket Guardian: this is not target page.');
       return;
     }
-    // ticket ページかどうか判定
-    console.log(status_elements);
-    console.log(submit_element);
 
     // 引数のDOMを覆うようなDIV要素を追加する
     // 登録ボタンを覆って無効にする
@@ -53,17 +51,21 @@ var BacklogTicketGuardian = {
 
   createGuardElement: function() {
 
+    var text = $(document.createElement('span'));
+    text.text('Guard!!');
+
     var guard_element = $(document.createElement('div'));
     guard_element.width(105);
     guard_element.height(32);
-    guard_element.text('Guard!!');
-    guard_element.css('color', 'whitesmoke');
-    guard_element.css('font-wieght', 'bold');
-    guard_element.css('background-color', '#696208');
+    guard_element.css('font-weight', 'bold');
+    guard_element.css('color', '#ab2a3e');
+    guard_element.css('background-color', 'black');
     guard_element.css('border-radius', '4px');
     guard_element.css('opacity', '0.8');
     guard_element.css('position', 'absolute');
     guard_element.css('top', 0);
+    guard_element.css('padding-top', '5px');
+    guard_element.append(text);
 
     return guard_element;
   },

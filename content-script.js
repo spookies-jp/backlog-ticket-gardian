@@ -73,19 +73,19 @@ var BacklogTicketGuardian = {
 
   createGuardElement: function() {
 
-    var gurad_element = $(document.createElement('div'));
-    gurad_element.width(105);
-    gurad_element.height(32);
-    gurad_element.text('Guard!!');
-    gurad_element.css('color', 'whitesmoke');
-    gurad_element.css('font-wieght', 'bold');
-    gurad_element.css('background-color', '#696208');
-    gurad_element.css('border-radius', '4px');
-    gurad_element.css('opacity', '0.8');
-    gurad_element.css('position', 'absolute');
-    gurad_element.css('top', 0);
+    var guard_element = $(document.createElement('div'));
+    guard_element.width(105);
+    guard_element.height(32);
+    guard_element.text('Guard!!');
+    guard_element.css('color', 'whitesmoke');
+    guard_element.css('font-wieght', 'bold');
+    guard_element.css('background-color', '#696208');
+    guard_element.css('border-radius', '4px');
+    guard_element.css('opacity', '0.8');
+    guard_element.css('position', 'absolute');
+    guard_element.css('top', 0);
 
-    return gurad_element;
+    return guard_element;
   },
 
 

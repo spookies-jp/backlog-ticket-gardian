@@ -170,34 +170,27 @@ var BacklogTicketGuardian = {
   //
   onBlurHours: function(guard_element) {
 
-    var div = $('div.change-statuses-properties-item.-estimated-hours')
-    var est = div.children('input[name="switchStatusIssue.estimatedHours"]');
-    var act = div.children('input[name="switchStatusIssue.actualHours"]');
-
     return function(e) {
 
       var status_elements = $(".comment-editor__radio-item");
       var status = status_elements.children('input:checked').prop('value');
 
-      guard_element.hide();
+      var self = BacklogTicketGuardian;
       switch (Number(status)) {
         case 1: // 未対応
+          self.onChangeOpen(guard_element)();
           break;
 
         case 2: // 処理中
-          if (utils.empty(est.prop('value'))) {
-            guard_element.show();
-          }
+          self.onChangeInProgress(guard_element)();
           break;
 
         case 3: // 処理済
-        case 4: // 完了
-          if (utils.empty(est.prop('value')) || utils.empty(act.prop('value'))) {
-            guard_element.show();
-          }
+          self.onChangeResolved(guard_element)();
           break;
 
-        default:
+        case 4: // 完了
+          self.onChangeClosed(guard_element)();
           break;
       }
 

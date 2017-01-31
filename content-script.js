@@ -21,6 +21,31 @@ var BacklogTicketGuardian = {
     guard_element = self.createGuardElement();
     self.cover(submit_element, guard_element);
 
+    // この時点ではステータスを取れない
+    window.setTimeout(function() {
+
+      var status_elements = $(".comment-editor__radio-item");
+      var status = status_elements.children('input:checked').prop('value');
+
+      switch (Number(status)) {
+        case 1: // 未対応
+          self.onChangeOpen(guard_element)();
+          break;
+
+        case 2: // 処理中
+          self.onChangeInProgress(guard_element)();
+          break;
+
+        case 3: // 処理済
+          self.onChangeResolved(guard_element)();
+          break;
+
+        case 4: // 完了
+          self.onChangeClosed(guard_element)();
+          break;
+      };
+    }, 1000);
+
     // 各ステータスボタンにイベント登録
     $(status_elements[0]).click(self.onChangeOpen(guard_element));
     $(status_elements[1]).click(self.onChangeInProgress(guard_element));

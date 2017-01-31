@@ -24,6 +24,8 @@ var BacklogTicketGuardian = {
     // 各ステータスボタンにイベント登録
     $(status_elements[0]).click(self.onChangeOpen(guard_element));
     $(status_elements[1]).click(self.onChangeInProgress(guard_element));
+    $(status_elements[2]).click(self.onChangeResolved(guard_element));
+    $(status_elements[3]).click(self.onChangeClosed(guard_element));
   },
 
 
@@ -85,17 +87,35 @@ var BacklogTicketGuardian = {
     };
   },
 
+
+  //  on 処理済にかえる
+  //
+  //    if 予定 == empty || 実績 == empty
+  //
+  //      `登録` ボタンを disable
+  onChangeResolved: function(guard_element) {
+
+    var div = $('div.change-statuses-properties-item.-estimated-hours')
+    var est = div.children('input[name="switchStatusIssue.estimatedHours"]');
+    var act = div.children('input[name="switchStatusIssue.actualHours"]');
+
+    return function(e) {
+      guard_element.hide();
+      if (utils.empty(est.prop('value')) || utils.empty(act.prop('value'))) {
+        guard_element.show();
+      }
+    };
+  },
+
+  onChangeClosed: function(guard_element) {
+    var self = BacklogTicketGuardian;
+    return self.onChangeResolved(guard_element);
+  },
 };
 
 BacklogTicketGuardian.init();
 
 // ステータス毎のDOMにonClickイベントを登録して制御
-
-//  on 処理済にかえる
-//
-//    if 予定 == empty || 実績 == empty
-//
-//      `登録` ボタンを disable
 
 //  on (予定|実績)から離れる
 //

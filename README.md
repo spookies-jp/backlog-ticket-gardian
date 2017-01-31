@@ -2,9 +2,9 @@
 
 # What's this
 
-Backlogチケットの`予定時間/実績時間`が未入力の場合に、`処理済み``完了`に変更できないように制御する Goole Extension Tool です。
+Backlogチケットの`予定/実績`が未入力の場合に、`処理済み``完了`に変更できないように制御する ChromeExtension です。
 
-## チケットページでの挙動
+## チケットページでの動作
 
 チケットの詳細ページで動作します。ステータスごとに設定された条件に応じて **登録ボタン** を無効化します。
 
@@ -16,6 +16,8 @@ Backlogチケットの`予定時間/実績時間`が未入力の場合に、`処
   - **予定** 及び **実績** が未入力の場合に**登録ボタン**を無効化します。
 - 完了
   - **予定** 及び **実績** が未入力の場合に**登録ボタン**を無効化します。
+
+![animation](https://raw.githubusercontent.com/spookies-jp/backlog-ticket-gardian/images/backlog-ticket-guardian-anim.gif)
 
 # How to use
 

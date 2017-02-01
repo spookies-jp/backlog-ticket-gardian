@@ -12,7 +12,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/utils.js",
+    "start": "npm build",
+    "build": "zip -r backlog-ticket-gardian.zip bower_components icons manifest.json scripts"
   },
   "repository": {
     "type": "git",
